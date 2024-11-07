@@ -1,12 +1,8 @@
 function color_to_rgba(color){
     if(window.CSS && window.CSS.supports('color', color)){
         if (color.includes("#")) {
-            console.log("HEX");
-            
             let hex = color.replace('#', ''), r, g, b, a;
             hex = hex.length === 3 ? `${hex[0].repeat(2)}${hex[1].repeat(2)}${hex[2].repeat(2)}` : hex;
-            
-            
             r = parseInt(hex.slice(0, 2), 16);
             g = parseInt(hex.slice(2, 4), 16);
             b = parseInt(hex.slice(4, 6), 16);
@@ -14,7 +10,6 @@ function color_to_rgba(color){
             return `rgba(${r}, ${g}, ${b}, ${a})`;
         }
         else if(color.includes(")")){
-            console.log("complex like rgb or others");
             if (color.includes("rgba")) {
                 return color;
             }
@@ -23,7 +18,6 @@ function color_to_rgba(color){
             }
         }
         else {
-            console.log("Name");
             const color_names = {
                 aliceblue: "rgba(240, 248, 255, 1)",
                 antiquewhite: "rgba(250, 235, 215, 1)",
